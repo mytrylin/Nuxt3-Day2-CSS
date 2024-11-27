@@ -1,2 +1,3 @@
-# Nuxt3-Day2-CSS
-Nuxt3-Day2-CSS
+# NUXT3 - Day2 - 專案引入 CSS 樣式
+
+
