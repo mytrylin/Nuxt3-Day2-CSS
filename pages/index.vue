@@ -1,20 +1,12 @@
-<script setup lang="ts"></script>
-
 <template>
-  <h1>Page: 首頁</h1>
-  <div class="main">
-    <span>Page: index</span><br>
-    <NuxtLink to="/admin" >Admin</NuxtLink><br>
-    <NuxtLink :to="`/product/${1}`">product 1</NuxtLink><br>
-  </div>
+  <h1>Hello world</h1>
+  <p class="title">全域共用樣式</p>
 </template>
+<style lang="scss">
+$primary: blue;
 
-<style scoped>
-.main {
-  padding: 11%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+h1 {
+  color: $primary;
+  font-size: $fs-xl;
 }
 </style>
