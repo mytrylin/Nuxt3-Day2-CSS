@@ -1,12 +1,12 @@
 <template>
-  <h1>Hello world</h1>
+  <h1>use sass nuxt.config.ts</h1>
   <p class="title">全域共用樣式</p>
 </template>
 <style lang="scss">
-$primary: blue;
+$specialColor: #FF0052;
 
 h1 {
-  color: $primary;
-  font-size: $fs-xl;
+  color: $specialColor;
+  font-size: $fs-lg;
 }
 </style>
