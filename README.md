@@ -5,7 +5,7 @@
 
 > npm install -D sass
 
-撰寫預處理器
+### 撰寫預處理器
 
 ```html
 <!-- pages/index.vue -->
@@ -22,7 +22,7 @@ h1{
 </style>
 ```
 
-手動建立樣式表級路徑 (nuxi add 不支援 assers/，目錄需手動建立)
+### 手動建立樣式表級路徑 (nuxi add 不支援 assers/，目錄需手動建立)
 
 ```css
 /* assets/stylesheets/all.scss */
@@ -34,7 +34,7 @@ h1{
 
 ```
 
-設定 nuxt.config.ts 設定全域樣式
+### 設定 nuxt.config.ts 設定全域樣式
 
 ```ts
 // nuxt.config.ts
@@ -49,7 +49,7 @@ export default defineNuxtConfig({
 
 > @ 是專案資料夾 “根目錄” 路徑的縮寫 ( alias ) ，@ 會指向 nuxt3-project/
 
-在 SFC 中使用樣式
+### 在 SFC 中使用樣式
 
 ```html
 <!-- pages/index.vue -->
@@ -58,4 +58,40 @@ export default defineNuxtConfig({
 </template>
 
 ```
+
+### vite 設定全域共用 SASS
+
+```ts
+export default defineNuxtConfig({
+  compatibilityDate: "2024-08-16",
+  devtools: { enabled: true },
+  css: ["@/assets/stylesheets/all.scss"],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @use "@/assets/stylesheets/variables" as *;
+          `,
+        },
+      },
+    },
+  },
+});
+```
+這一段設定的目的是讓變數在編譯的時候自動加載到每個 SFC 的 style 中
+此後就不需要在每個 SFC 都寫 @import "@/assets/stylesheets/all.scss"
+
+### 文件參考
+[nuxt-link](https://nuxt.com/docs/api/components/nuxt-link)
+
+[nuxt-config#css](https://nuxt.com.cn/docs/api/nuxt-config#css)
+
+[nuxt-config#alias](https://nuxt.com/docs/api/nuxt-config#alias)
+
+[vite shared-options](https://vite.dev/config/shared-options.html#css-preprocessoroptions-extension-additionaldata)
+
+[nuxt-link]()
+
+
 
